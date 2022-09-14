@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HobbyLobbyMVC.Models.Pickup>
+
+@{
+    ViewBag.Title = "Pickups";
+}
+
+<h2>Pickups</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<div class="col-md-4">
+    <p><a class="btn btn-secondary" href="https://localhost:44327/pickups/Create">Create a new pickup &raquo;</a></p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduledDate)
+        </th>
+        @*<th>
+               @Html.DisplayNameFor(model => model.ScheduledTime)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.PickupCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Truck.TruckNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduledDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Truck.TruckNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PickupNumber }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PickupNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PickupNumber })
+            </td>
+        </tr>
+    }
+
+</table>
